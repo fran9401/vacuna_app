@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\VacunaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+   //Ruta para el controlador PersonaController
+    Route::resource('personas', PersonaController::class );
+
+    //ruta para el controlador VacunaController
+    Route::resource('vacunas', VacunaController::class );
+

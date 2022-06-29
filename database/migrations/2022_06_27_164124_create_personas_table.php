@@ -15,9 +15,9 @@ return new class extends Migration
             $table->string('apellido',64);
             $table->date('fecha_nacimiento');
             $table->string('cedula',16);
-            $table->string('Barrio',32);
+            $table->string('barrio');
             $table->string('ciudad',32);
-            $table->string('pais',32);
+            $table->string('pais');
             $table->string('sexo',1);
 
             $table->timestamps();

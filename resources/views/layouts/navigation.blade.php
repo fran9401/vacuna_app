@@ -16,6 +16,18 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('personas.index')" :active="request()->routeIs('personas.index')">
+                        Personas
+                    </x-nav-link>
+                </div>
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('vacunas.index')" :active="request()->routeIs('vacunas.index')">
+                        Vacunas
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
