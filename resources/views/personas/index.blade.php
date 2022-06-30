@@ -24,10 +24,11 @@
                 <!-- Mostrar en una tabla la lista de persona -->
                     <table class="w-full table-auto">
                         <thead>
-                            <tr>
+                            <tr class="bg-cyan-500">
                                 <th class="px-4 py-2">Nombre</th>
                                 <th class="px-4 py-2">Apellido</th>
                                 <th class="px-4 py-2">Cedula</th>
+                                <th class="px-4 py-2"># de Vacunas</th>
 
                                 <th class="px-4 py-2">Acciones</th>
                             </tr>
@@ -35,15 +36,24 @@
                         <tbody>
                             @foreach ($personas as $persona)
                                 <tr>
-                                    <td class="px-4 py-2 border">{{ $persona->nombre }}</td>
+                                    <td class="px-4 py-2 border">
+                                        @svg('gmdi-content-paste-search' , 'h-6 w-6 text-cyan-600 inline')
+
+                                        <a href="{{ route('personas.show', $persona->id) }}"
+                                            class="text-sm text-gray-900 hover:underline font-bold">
+                                            {{ $persona->nombre }}
+                                    </td>
                                     <td class="px-4 py-2 border">{{ $persona->apellido }}</td>
                                     <td class="px-4 py-2 border">{{ $persona->cedula }}</td>
+                                    <td class="px-4 py-2 border">{{ $persona->vacunas->count() }}
+                                        
+                                    </td>
 
                                     <td class="px-4 py-2 border">
                                         <a href="{{ route('personas.edit', $persona->id) }}"
-                                             class="p-2 text-white bg-cyan-500 rounded-lg hover:text-blue-100">Editar</a>
+                                             class="p-2 bg-cyan-500 rounded-lg hover:text-blue-100">@svg('gmdi-edit-note-tt', 'h-6 w-6 text-blackq inline') </a>
                                         <a href="{{ route('personas.show', ["persona" => $persona->id, "confirmar_eliminado" => 1]) }}"
-                                             class="p-2 text-white bg-black rounded-lg hover:text-red-100">Eliminar</a>
+                                             class=" p-2 bg-black rounded-lg hover:text-red-100 ml-2">@svg('gmdi-delete-forever','h-6 w-6 text-cyan-400 inline' )</a>
                                     </td>
                                 </tr>
                             @endforeach

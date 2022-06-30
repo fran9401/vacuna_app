@@ -22,4 +22,11 @@ class Persona extends Model
                  'sexo',
                ];
 
+    //Relaciones
+    public function vacunas()
+    {
+        return $this->hasMany(PersonaVacuna::class);
+    }
+
+
 }

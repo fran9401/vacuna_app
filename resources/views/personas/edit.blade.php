@@ -72,7 +72,7 @@
 
                             <!-- Crear un boton para regresar a la lista de personas -->
                             <a href="{{ route('personas.index') }}"
-                            class="text-white py-2 px-4 rounded-md font-semibold text-xs bg-orange-500 hover:text-white">
+                            class="text-white py-2 px-4 rounded-md font-semibold text-xs bg-cyan-500 hover:text-white">
                                REGREASAR
                             </a>
                         </div>

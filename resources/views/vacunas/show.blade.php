@@ -26,7 +26,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit"
-                                    class="text-center w-24 p-2 text-white bg-red-800 rounded-lg hover:text-red-100">Si</button>
+                                    class="text-center w-24 p-2 text-white bg-cyan-500 rounded-lg hover:text-white">Si</button>
                                 </form>
                                     <a href="{{ route('vacunas.index') }}"
                                     class="text-center w-24 ml-4 p-2 text-white bg-gray-800 rounded-lg hover:text-red-100">No</a>
