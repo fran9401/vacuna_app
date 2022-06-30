@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\VacunaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +30,7 @@ require __DIR__.'/auth.php';
 
     //ruta para el controlador VacunaController
     Route::resource('vacunas', VacunaController::class );
+
+
+
 

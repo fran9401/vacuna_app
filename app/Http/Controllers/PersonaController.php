@@ -6,8 +6,11 @@ use App\Models\Persona;
 use Illuminate\Http\Request;
 
 class PersonaController extends Controller
-{
-    public function index()
+{  //lista de sexos para el select de la vista
+    public $sexos = [
+        'M' => 'Masculino', 'F' => 'Femenino'];
+
+        public function index()
     {
         //Extraer todas las personas de la base de datos
         $personas = Persona::paginate(20);
@@ -22,18 +25,29 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        //
+        //Mostrar el formulario para crear una nueva persona
+        $sexos = $this->sexos;
+        return view('personas.create', compact('sexos'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        //insertar una nueva persona en la base de datos
+        $persona = new Persona();
+        $persona->nombre = $request->nombre;
+        $persona->apellido = $request->apellido;
+        $persona->fecha_nacimiento = $request->fecha_nacimiento;
+        $persona->cedula = $request->cedula;
+        $persona->barrio= $request->barrio;
+        $persona->ciudad = $request->ciudad;
+        $persona->pais = $request->pais;
+        $persona->sexo = $request->sexo;
+        $persona->save();
+        return redirect('/personas');
+
+
+
     }
 
     /**
@@ -44,18 +58,17 @@ class PersonaController extends Controller
      */
     public function show(Persona $persona)
     {
-        //
+        //mostrar la persona en detalle
+        return view('personas.show', compact('persona'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Persona  $persona
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Persona $persona)
     {
-        //
+
+       //mostrar la vist de editar una persona
+       $sexos = $this->sexos;
+         return view('personas.edit', compact('persona', 'sexos'));
     }
 
     /**
@@ -67,7 +80,10 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
-        //
+        //Guardar los cambios en la base de datos
+        $persona->update($request->all());
+        //Redireccionar al index de personas
+        return redirect()->route('personas.index');
     }
 
     /**
@@ -78,6 +94,9 @@ class PersonaController extends Controller
      */
     public function destroy(Persona $persona)
     {
-        //
+        //Eliminar la persona de la base de datos
+        $persona->delete();
+        //Redireccionar al index de personas
+        return redirect()->route('personas.index');
     }
 }
