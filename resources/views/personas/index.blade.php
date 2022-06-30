@@ -40,8 +40,10 @@
                                     <td class="px-4 py-2 border">{{ $persona->cedula }}</td>
 
                                     <td class="px-4 py-2 border">
-                                        <a href="{{ route('personas.edit', $persona->id) }}" class="p-2 text-white bg-cyan-500 rounded-lg hover:text-blue-100">Editar</a>
-                                        <a href="{{ route('personas.show', ["persona" => $persona->id, "confirmar_eliminado" => 1]) }}" class="p-2 text-white bg-black rounded-lg hover:text-red-100">Eliminar</a>
+                                        <a href="{{ route('personas.edit', $persona->id) }}"
+                                             class="p-2 text-white bg-cyan-500 rounded-lg hover:text-blue-100">Editar</a>
+                                        <a href="{{ route('personas.show', ["persona" => $persona->id, "confirmar_eliminado" => 1]) }}"
+                                             class="p-2 text-white bg-black rounded-lg hover:text-red-100">Eliminar</a>
                                     </td>
                                 </tr>
                             @endforeach
