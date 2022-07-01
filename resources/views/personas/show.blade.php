@@ -68,16 +68,16 @@
                                                     Fecha de aplicación
                                                 </th>
                                                 <th
-                                                class="px-5 py-3 border-b border-gray-500 bg-cyan-500 text-left text-xs leading-4 font-bold text-black  uppercase tracking-wider">
-                                                Laboratorio
-                                            </th>
-                                            <th
-                                            class="px-5 py-3 border-b border-gray-500 bg-cyan-500 selection:text-left text-xs leading-4 font-bold text-black uppercase tracking-wider">
-                                            Lote
-                                        </th>
-                                        <th
-                                            class="px-5 py-3 border-b border-gray-500 bg-cyan-500 text-left text-xs leading-4 font-bold text-black uppercase tracking-wider">
-                                            Acciones
+                                                    class="px-5 py-3 border-b border-gray-500 bg-cyan-500 text-left text-xs leading-4 font-bold text-black  uppercase tracking-wider">
+                                                    Laboratorio
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b border-gray-500 bg-cyan-500 selection:text-left text-xs leading-4 font-bold text-black uppercase tracking-wider">
+                                                    Lote
+                                                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b border-gray-500 bg-cyan-500 text-left text-xs leading-4 font-bold text-black uppercase tracking-wider">
+                                                    Acciones
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -100,7 +100,7 @@
                                                     <td class="px-5 py-5 border-b border-gray-200">
                                                         <a href="{{ route('vacunas.show', $vacuna->id) }}"
                                                             class="text-sm leading-5 font-medium text-gray-900">
-                                                            @svg('gmdi-zoom-in-o','w-5 h-5 mr-1 inline')
+                                                            @svg('gmdi-zoom-in-o', 'w-5 h-5 mr-1 inline')
                                                         </a>
                                                         <a href="{{ route('vacunas.edit', $vacuna->id) }}"
                                                             class="text-sm leading-5 font-medium text-gray-900">
