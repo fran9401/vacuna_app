@@ -10,7 +10,7 @@ class PersonaVacunaController extends Controller
     //lista de vacunas para el select de la vista
     public $vacunas = [
         'BCG' => 'BCG', 'DPT' => 'DPT', 'HEPB' => 'HEPB', 'HIB' => 'HIB', 'HIV' => 'HIV', 'MMR' => 'MMR', 'RV' => 'RV', 'VAR' => 'VAR', 'VZV' => 'VZV'];
-        
+
     public function index()
     {
         //extraer todos los registros de la tabla persona_vacuna
@@ -26,8 +26,15 @@ class PersonaVacunaController extends Controller
      */
     public function create()
     {
-        //Mostrar el formulario para crear una nueva dosis
-        return view('personas-vacunas.create');
+
+        //estraer la lista de personas
+        $personas = \App\Models\Persona::all();
+
+        //estraer la lista de vacunas
+        $vacunas = \App\Models\Vacuna::all();
+
+        //devolver la vista y pasar los datos
+        return view('personas-vacunas.create', compact('personas', 'vacunas'));
     }
 
     /**

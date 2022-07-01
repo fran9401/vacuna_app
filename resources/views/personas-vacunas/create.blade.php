@@ -14,18 +14,17 @@
                           @csrf
 
                           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                              <x-app-input
-                              texto="Nombre"
-                              valor="{{ old('nombre') }}"
-                              required="true"
-                              id="nombre"
+                              <x-app-select
+                              texto="Personas"
+                              :datos="$personas"
+                              id="persona_id"
                               />
-                              <x-app-input
-                              texto="Indicaciones"
-                              valor="{{ old('indicaciones') }}"
-                              required="true"
-                              id="indicaciones"
-                               />
+                               <x-app-select
+                                texto="Vacunas"
+                                :datos="$vacunas"
+                                id="vacuna_id"
+                                />
+                                
                             </div>
 
                             <div class="mt-2">
