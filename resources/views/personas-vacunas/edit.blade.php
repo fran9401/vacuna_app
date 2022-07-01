@@ -9,7 +9,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('personas-vacunas.store') }}" method="POST">
+                    <form action="{{ route('personas-vacunas.update', $personas_vacuna->id) }}" method="POST">
 
                           @csrf
 
@@ -27,27 +27,27 @@
 
                                 <x-app-input
                                 texto="Dosis"
-                                valor="{{ old('dosis') }}"
+                                valor="{{ $personas_vacuna->dosis }}"
                                 required="true"
                                 id="dosis"
                                 />
                                 <x-app-input
                                 type="date"
                               texto="Fecha de Vacunacion"
-                              valor="{{ old('fecha') }}"
+                              valor="{{$personas_vacuna->fecha }}"
                               required="true"
                               id="fecha"/>
 
                               <x-app-input
                               texto="Laboratorio"
-                              valor="{{ old('laboratorio') }}"
+                              valor="{{ $personas_vacuna->laboratorio }}"
                               required="true"
                               id="laboratorio"
                                 />
 
                                 <x-app-input
                                 texto="Lote"
-                                valor="{{ old('lote') }}"
+                                valor="{{ $personas_vacuna->lote }}"
                                 required="true"
                                 id="lote"
                                 />
@@ -62,7 +62,7 @@
                                 <!-- Crear un boton para regresar a la lista de vacunas -->
                                 <a href="{{ route('vacunas.index') }}"
                                 class="px-4 py-2 text-xs font-semibold text-white rounded-md bg-cyan-500 hover:text-white">
-                                   REGREASAR
+                                   REGRESAR
                                 </a>
                             </div>
                         </form>
