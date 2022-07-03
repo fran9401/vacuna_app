@@ -12,10 +12,16 @@ class PersonaController extends Controller
 
         public function index()
     {
-        //Extraer todas las personas de la base de datos
-        $personas = Persona::paginate(20);
-        // Devolver la vista y pasar las personas
-        return view('personas.index', compact('personas'));
+
+            //Extraer todas las personas de la base de datos con el término buscado
+            $termino = isset($_GET['search']) ? $_GET['search'] : null;
+
+            $personas = Persona::query()->when($termino, function ($query) use ($termino) {
+                return $query->where('nombre', 'like', '%' . $termino . '%');
+            })->paginate(20);
+
+            // Devolver la vista y pasar las personas
+            return view('personas.index', compact('personas'));
     }
 
     /**

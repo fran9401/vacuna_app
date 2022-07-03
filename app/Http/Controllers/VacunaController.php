@@ -10,8 +10,12 @@ class VacunaController extends Controller
 
     public function index()
     {
-        //Extraer todas las vacunas de la base de datos
-        $vacunas = Vacuna::paginate(20);
+        //Extraer todas las vacunas de la base de datos con el término buscado
+        $termino = isset($_GET['search']) ? $_GET['search'] : null;
+        $vacunas = Vacuna::query()->when($termino, function ($query) use ($termino) {
+            return $query->where('nombre', 'like', '%' . $termino . '%');
+        })->paginate(20);
+        
         // Devolver la vista y pasar las vacunas
         return view('vacunas.index', compact('vacunas'));
     }
@@ -93,6 +97,6 @@ class VacunaController extends Controller
         //Eliminar la vacuna de la base de datos
         $vacuna->delete();
         return redirect('/vacunas');
-        
+
     }
 }

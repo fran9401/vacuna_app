@@ -14,8 +14,11 @@ class PersonaVacunaController extends Controller
 
     public function index()
     {
-        //extraer todos los registros de la tabla persona_vacuna
-        $persona_vacuna= PersonaVacuna::paginate(20);
+        //extraer todos los registros de la tabla usando el termino buscado
+        $termino = isset($_GET['search']) ? $_GET['search'] : null;
+        $persona_vacuna= PersonaVacuna::query()->when($termino, function ($query) use ($termino) {
+            return $query->where('persona_id', 'like', '%' . $termino . '%');
+        })->paginate(20);
         //devolver la vista y pasar los registros
         return view('personas-vacunas.index', compact('persona_vacuna'));
     }
