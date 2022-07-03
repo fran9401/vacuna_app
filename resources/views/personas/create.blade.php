@@ -6,14 +6,14 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{ route('personas.store')}}" method="POST">
 
                           @csrf
 
-                          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                               <x-app-input
                               texto="Nombre"
                               valor="{{ old('nombre') }}"
@@ -62,7 +62,9 @@
                                 <x-app-select
                                 texto="sexo"
                                 :datos="$sexos"
-                                id="sexo"/>
+                                id="sexo"
+                                valor="{{ old('sexo') }}"
+                                />
 
                         </div>
 
@@ -73,8 +75,8 @@
 
                             <!-- Crear un boton para regresar a la lista de personas -->
                             <a href="{{ route('personas.index') }}"
-                            class="text-white py-2 px-4 rounded-md font-semibold text-xs bg-cyan-500 hover:text-white">
-                               REGREASAR
+                            class="px-4 py-2 text-xs font-semibold text-white rounded-md bg-cyan-500 hover:text-white">
+                               REGRESAR
                             </a>
                         </div>
                     </form>

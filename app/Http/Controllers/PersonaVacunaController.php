@@ -20,11 +20,7 @@ class PersonaVacunaController extends Controller
         return view('personas-vacunas.index', compact('persona_vacuna'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
 
@@ -43,12 +39,7 @@ class PersonaVacunaController extends Controller
         return view('personas-vacunas.create', compact('personas', 'vacunas'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
 
@@ -65,12 +56,6 @@ class PersonaVacunaController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PersonaVacuna  $personaVacuna
-     * @return \Illuminate\Http\Response
-     */
     public function show(PersonaVacuna $personas_vacuna)
     {
         //mostrar el detalle de una dosis
@@ -78,12 +63,7 @@ class PersonaVacunaController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PersonaVacuna  $personaVacuna
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(PersonaVacuna $personas_vacuna)
     {
         //extraer la lista de personas
@@ -101,28 +81,27 @@ class PersonaVacunaController extends Controller
         return view('personas-vacunas.edit', compact('personas_vacuna','personas', 'vacunas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PersonaVacuna  $personaVacuna
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, PersonaVacuna $personas_vacuna)
     {
         //guardar los cambios realizados en la dosis
         $personas_vacuna->persona_id = $request->persona_id;
+        $personas_vacuna->vacuna_id = $request->vacuna_id;
+        $personas_vacuna->dosis= $request->dosis;
+        $personas_vacuna->fecha = $request->fecha;
+        $personas_vacuna->laboratorio = $request->laboratorio;
+        $personas_vacuna->lote = $request->lote;
+        $personas_vacuna->save();
+        return redirect('/personas-vacunas');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PersonaVacuna  $personaVacuna
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(PersonaVacuna $personas_vacuna)
     {
         //eliminar una dosis de la base de datos
         $personas_vacuna->delete();
+        return redirect('/personas-vacunas');
+
     }
 }

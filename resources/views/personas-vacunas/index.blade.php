@@ -94,15 +94,9 @@
                                                         class="text-blue-500 hover:text-blue-700">
                                                         @svg('gmdi-edit-note-tt', 'h-6 w-6 text-black inline')
                                                     </a>
-                                                    <form
-                                                        action="{{ route('personas-vacunas.destroy', $personaVacuna->id) }}"
-                                                        method="POST" class="inline">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="text-red-500 hover:text-red-700">
-                                                            @svg('gmdi-delete-forever','h-6 w-6 text-cyan-400 inline' )
-                                                        </button>
-                                                    </form>
+                                                    <a href="{{ route('personas-vacunas.show', ["personas_vacuna" => $personaVacuna->id, "confirmar_eliminado" => 1]) }}"
+                                                        class="p-2 ml-2 bg-black rounded-lg hover:text-red-100">@svg('gmdi-delete-forever','h-6 w-6 text-cyan-400 inline' )</a>
+
                                                 </td>
                                             </tr
                                              @endforeach

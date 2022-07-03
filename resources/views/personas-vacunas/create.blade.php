@@ -18,11 +18,13 @@
                               texto="Personas"
                               :datos="$personas"
                               id="persona_id"
+                              valor="{{ old('persona_id') }}"
                               />
                                <x-app-select
                                 texto="Vacunas"
                                 :datos="$vacunas"
                                 id="vacuna_id"
+                                valor="{{old('vacuna_id') }}"
                                 />
 
                                 <x-app-input
@@ -62,7 +64,7 @@
                                 <!-- Crear un boton para regresar a la lista de vacunas -->
                                 <a href="{{ route('vacunas.index') }}"
                                 class="px-4 py-2 text-xs font-semibold text-white rounded-md bg-cyan-500 hover:text-white">
-                                   REGREASAR
+                                   REGRESAR
                                 </a>
                             </div>
                         </form>
@@ -70,4 +72,5 @@
                 </div>
             </div>
         </div>
+        
     </x-app-layout>

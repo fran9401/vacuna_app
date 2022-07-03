@@ -10,7 +10,7 @@
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{ route('personas-vacunas.update', $personas_vacuna->id) }}" method="POST">
-
+                        @method('PUT')
                           @csrf
 
                           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -18,11 +18,13 @@
                               texto="Personas"
                               :datos="$personas"
                               id="persona_id"
+                                valor="{{ $personas_vacuna->persona_id }}"
                               />
                                <x-app-select
                                 texto="Vacunas"
                                 :datos="$vacunas"
                                 id="vacuna_id"
+                                valor="{{ $personas_vacuna->vacuna_id }}"
                                 />
 
                                 <x-app-input
@@ -60,7 +62,7 @@
                                </x-button>
 
                                 <!-- Crear un boton para regresar a la lista de vacunas -->
-                                <a href="{{ route('vacunas.index') }}"
+                                <a href="{{ route('personas-vacunas.index') }}"
                                 class="px-4 py-2 text-xs font-semibold text-white rounded-md bg-cyan-500 hover:text-white">
                                    REGRESAR
                                 </a>
