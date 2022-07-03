@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center justify-between">
-            <span class="text-xl font-semibold leading-tight text-gray-800">
+            <span class="text-xl font-serif font-bold leading-tight text-gray-800">
                 Dosis
             </span>
             <a href="{{ route('personas-vacunas.create') }}"
